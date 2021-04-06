@@ -1,18 +1,19 @@
 import Chart from "chart.js/auto";
 
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
 export default function Graph({ state }) {
   useEffect(() => {
     const ctx = document.getElementById("myChart");
     const chart = new Chart(ctx, {
-      type: "line",
+      type: "bar",
       data: {
         labels: state.dailyEvents.map((el) => el.date),
         datasets: [
           {
-            label: "Number of Events Daily",
+            label: "Number of Daily Events",
             data: state.dailyEvents.map((el) => el.events),
+            xAxesId: "daily",
             backgroundColor: [
               "Red",
               "Blue",
@@ -21,10 +22,30 @@ export default function Graph({ state }) {
               "Purple",
               "Orange",
             ],
-            borderColor: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-            borderWidth: 1,
+          },
+          {
+            type: "line",
+            label: "Number of Hourly Events",
+            data: state.hourlyEvents.map((el) => el.hour),
+            xAxisId: "hourly",
+            backgroundColor: [
+              "Blue",
+              "Yellow",
+              "Green",
+              "Purple",
+              "Orange",
+              "Red",
+            ],
+            borderColor: "black",
+            borderWidth: 2,
+            order: -1,
           },
         ],
+        options: {
+          scales: {
+            x: [{ id: "hourly", stacked: false }],
+          },
+        },
       },
     });
     return () => chart.destroy();
