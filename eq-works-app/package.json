@@ -1,6 +1,7 @@
 {
   "name": "eq-works-app",
   "version": "0.1.0",
+  "proxy": "http://localhost:4567",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
