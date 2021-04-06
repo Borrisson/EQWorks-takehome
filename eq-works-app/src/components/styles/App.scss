@@ -8,7 +8,9 @@
   background-color: inherit;
 }
 
-#phaser-game {
+#chartContainer {
+  display: flex;
+  align-items: center;
   height: 100%;
   width: 80%;
 }
