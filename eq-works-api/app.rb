@@ -28,7 +28,7 @@ get "/events/daily" do
     FROM public.hourly_events
     GROUP BY date
     ORDER BY date
-    LIMIT 7;
+    LIMIT 42;
   " ""
 end
 
