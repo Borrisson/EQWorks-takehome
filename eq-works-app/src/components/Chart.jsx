@@ -1,6 +1,6 @@
 import Chart from "chart.js/auto";
 
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
 export default function Graph({ state }) {
   useEffect(() => {
@@ -8,11 +8,11 @@ export default function Graph({ state }) {
     const chart = new Chart(ctx, {
       type: "line",
       data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        labels: state.dailyEvents.map((el) => el.date),
         datasets: [
           {
-            label: "# of Votes",
-            data: [12, 19, 3, 5, 2, 3],
+            label: "Number of Events Daily",
+            data: state.dailyEvents.map((el) => el.events),
             backgroundColor: [
               "Red",
               "Blue",
