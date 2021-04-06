@@ -2,7 +2,7 @@ import Chart from "chart.js/auto";
 
 import { useEffect } from "react";
 
-export default function Graph(props) {
+export default function Graph({ state }) {
   useEffect(() => {
     const ctx = document.getElementById("myChart");
     const chart = new Chart(ctx, {
