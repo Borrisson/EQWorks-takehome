@@ -65,6 +65,7 @@ const useApplicationData = () => {
   return {
     state,
     dispatch,
+    handleAppData,
   };
 };
 
