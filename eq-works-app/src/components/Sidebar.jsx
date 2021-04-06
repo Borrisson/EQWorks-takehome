@@ -55,6 +55,18 @@ export default function SideBar(props) {
           >
             Dashboard
           </MenuItem>
+          <MenuItem
+            className="sidebar item"
+            // onClick={() => handleShow("leaderboard")}
+          >
+            Maps
+          </MenuItem>
+          <MenuItem
+            className="sidebar item"
+            // onClick={() => handleShow("leaderboard")}
+          >
+            Charts
+          </MenuItem>
         </Menu>
       </SidebarContent>
       <SidebarFooter>
