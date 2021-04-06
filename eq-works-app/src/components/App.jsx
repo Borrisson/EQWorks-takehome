@@ -9,7 +9,7 @@ function App() {
     // add a loader until data has been fetched
     <>
       <SideBar />
-      <Chart />
+      <Chart state={state} />
     </>
   );
 }
