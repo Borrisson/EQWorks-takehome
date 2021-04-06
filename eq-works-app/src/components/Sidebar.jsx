@@ -40,8 +40,13 @@ export default function SideBar(props) {
 
   handleCollapse();
   return (
-    <ProSidebar collapsed={collapse} className="sidebar" image="logo192.png">
-      <SidebarHeader className="sidebar sidebar-header"></SidebarHeader>
+    <ProSidebar collapsed={collapse} className="sidebar">
+      <SidebarHeader className="sidebar sidebar-header">
+        {" "}
+        <MenuItem className="sidebar item">
+          <img alt="logo" src="logo192.png"></img>
+        </MenuItem>
+      </SidebarHeader>
       <SidebarContent className="sidebar sidebar-body">
         <Menu className="sidebar sidebar-menu">
           <MenuItem
@@ -53,7 +58,9 @@ export default function SideBar(props) {
         </Menu>
       </SidebarContent>
       <SidebarFooter>
-        <MenuItem className="sidebar sidebar-footer">Copyright 2021</MenuItem>
+        <MenuItem className="sidebar sidebar-footer">
+          Created by Luc Borris
+        </MenuItem>
       </SidebarFooter>
     </ProSidebar>
   );
