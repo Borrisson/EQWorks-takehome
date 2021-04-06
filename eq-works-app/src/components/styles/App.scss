@@ -1,0 +1,19 @@
+@import "Sidebar.scss";
+
+#root {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100vw;
+  background-color: inherit;
+}
+
+#phaser-game {
+  height: 100%;
+  width: 80%;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  bottom: auto;
+}
