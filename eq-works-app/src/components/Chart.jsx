@@ -5,7 +5,7 @@ import { useEffect } from "react";
 export default function Graph(props) {
   useEffect(() => {
     const ctx = document.getElementById("myChart");
-    new Chart(ctx, {
+    const chart = new Chart(ctx, {
       type: "line",
       data: {
         labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
@@ -27,7 +27,8 @@ export default function Graph(props) {
         ],
       },
     });
-  }, []);
+    return () => chart.destroy();
+  });
   return (
     <div id="chartContainer">
       <canvas id="myChart" />

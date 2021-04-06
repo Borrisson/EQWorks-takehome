@@ -6,6 +6,7 @@ import Chart from "./Chart";
 function App() {
   const { state } = useApplicationData();
   return (
+    // add a loader until data has been fetched
     <>
       <SideBar />
       <Chart />
