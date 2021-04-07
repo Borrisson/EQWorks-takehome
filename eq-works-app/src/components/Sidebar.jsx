@@ -44,7 +44,7 @@ export default function SideBar({ setView, DASHBOARD, MAP, CHART }) {
       <SidebarHeader className="sidebar sidebar-header">
         {" "}
         <MenuItem className="sidebar item">
-          <img alt="logo" src="logo192.png"></img>
+          <img alt="logo" src="logo-eq-works-square-blue.png"></img>
         </MenuItem>
       </SidebarHeader>
       <SidebarContent className="sidebar sidebar-body">
