@@ -15,7 +15,7 @@ export default function Dashboard(state) {
 
   return (
     <div className="dashboard">
-      <Pagination>
+      <Pagination className="mt-3">
         <Pagination.Item key={HOURLYEVENTS} active={view === HOURLYEVENTS}>
           Events
         </Pagination.Item>
