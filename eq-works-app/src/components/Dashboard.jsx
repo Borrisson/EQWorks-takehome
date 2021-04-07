@@ -13,7 +13,7 @@ export default function Dashboard(state) {
     <TableItem
       current={view}
       key={el.date}
-      id={id}
+      id={el.poi_id || id + 1}
       {...el}
       HOURLYEVENTS={HOURLYEVENTS}
       HOURLYSTATS={HOURLYSTATS}
