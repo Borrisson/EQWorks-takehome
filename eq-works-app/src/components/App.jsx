@@ -14,7 +14,6 @@ const MAP = "MAP";
 function App() {
   const { state } = useApplicationData();
   const [view, setView] = useState(CHART);
-  console.log(state.loading);
   return (
     // add a loader until data has been fetched
     <>
