@@ -15,7 +15,6 @@ function App() {
   const { state } = useApplicationData();
   const [view, setView] = useState(CHART);
   return (
-    // add a loader until data has been fetched
     <>
       <SideBar
         setView={setView}
