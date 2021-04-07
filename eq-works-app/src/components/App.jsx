@@ -18,7 +18,7 @@ function App() {
     <>
       <SideBar />
       {view === CHART && <Chart state={state} />}
-      {view === DASHBOARD && <Dashboard />}
+      {view === DASHBOARD && <Dashboard {...state} />}
       {view === MAP && <Map />}
     </>
   );
