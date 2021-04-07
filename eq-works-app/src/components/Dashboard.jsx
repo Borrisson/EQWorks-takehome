@@ -10,7 +10,15 @@ export default function Dashboard(state) {
   const [view, setView] = useState(HOURLYEVENTS);
 
   const parsedTableItem = state[view].map((el, id) => (
-    <TableItem key={el.date} id={id} {...el} />
+    <TableItem
+      current={view}
+      key={el.date}
+      id={id}
+      {...el}
+      HOURLYEVENTS={HOURLYEVENTS}
+      HOURLYSTATS={HOURLYSTATS}
+      POI={POI}
+    />
   ));
 
   return (
@@ -45,7 +53,7 @@ export default function Dashboard(state) {
             <th>#</th>
             <th>Date</th>
             <th>Time</th>
-            <th>Events</th>
+            {view === HOURLYEVENTS && <th>Events</th>}
           </tr>
         </thead>
         <tbody>{parsedTableItem}</tbody>
