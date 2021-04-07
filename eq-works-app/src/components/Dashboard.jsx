@@ -13,7 +13,7 @@ export default function Dashboard(state) {
     <TableItem
       current={view}
       key={el.poi_id || el.date}
-      id={el.poi_id || id + 1}
+      id={id + 1}
       {...el}
       HOURLYEVENTS={HOURLYEVENTS}
       HOURLYSTATS={HOURLYSTATS}
@@ -63,6 +63,14 @@ export default function Dashboard(state) {
                 <td>Impressions</td>
                 <td>Clicks</td>
                 <td>Revenue</td>
+              </>
+            )}
+            {view === POI && (
+              <>
+                <td>ID</td>
+                <td>Name</td>
+                <td>Latitude</td>
+                <td>Longitude</td>
               </>
             )}
           </tr>

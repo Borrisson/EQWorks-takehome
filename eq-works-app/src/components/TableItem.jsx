@@ -8,6 +8,10 @@ export default function TableItem({
   impressions,
   clicks,
   revenue,
+  name,
+  poi_id,
+  lat,
+  lon,
   HOURLYSTATS,
   HOURLYEVENTS,
   POI,
@@ -29,6 +33,14 @@ export default function TableItem({
           <td>{impressions}</td>
           <td>{clicks}</td>
           <td>{`$${Math.round(revenue * 100) / 100}`}</td>
+        </>
+      )}
+      {current === POI && (
+        <>
+          <td>{poi_id}</td>
+          <td>{name}</td>
+          <td>{lat}</td>
+          <td>{lon}</td>
         </>
       )}
     </tr>
