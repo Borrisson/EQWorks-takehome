@@ -7,8 +7,7 @@ export default function Dashboard(state) {
       <thead>
         <tr>
           <th>#</th>
-          <th>Date</th>
-          <th>Hour</th>
+          <th>DateTime</th>
           <th>Events</th>
         </tr>
       </thead>

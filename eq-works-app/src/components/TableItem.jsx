@@ -1,10 +1,9 @@
-export default function TableItem(props) {
+export default function TableItem({ id, date, events }) {
   return (
     <tr>
-      <td>1</td>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <td>{id}</td>
+      <td>{date}</td>
+      <td>{events}</td>
     </tr>
   );
 }
