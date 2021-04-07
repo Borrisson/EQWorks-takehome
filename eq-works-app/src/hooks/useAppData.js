@@ -10,6 +10,7 @@ const useApplicationData = () => {
     hourlyStats: [],
     dailyStats: [],
     poi: [],
+    loading: true,
   });
 
   useEffect(() => {
@@ -61,6 +62,7 @@ const useApplicationData = () => {
           hourlyStats,
           dailyStats,
           poi,
+          loading: false,
         });
       })
       .catch((err) => console.log(err));
@@ -72,6 +74,7 @@ const useApplicationData = () => {
     hourlyStats,
     dailyStats,
     poi,
+    loading,
   }) {
     dispatch({
       type: SET_APPLICATION_DATA,
@@ -80,6 +83,7 @@ const useApplicationData = () => {
       hourlyStats: [...hourlyStats],
       dailyStats: [...dailyStats],
       poi: [...poi],
+      loading: loading,
     });
   }
 

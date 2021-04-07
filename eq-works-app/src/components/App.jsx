@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ReactLoading from "react-loading";
 import "./styles/App.scss";
 import useApplicationData from "../hooks/useAppData";
 import SideBar from "./Sidebar";
@@ -13,6 +14,7 @@ const MAP = "MAP";
 function App() {
   const { state } = useApplicationData();
   const [view, setView] = useState(CHART);
+  console.log(state.loading);
   return (
     // add a loader until data has been fetched
     <>
@@ -22,9 +24,10 @@ function App() {
         DASHBOARD={DASHBOARD}
         MAP={MAP}
       />
-      {view === CHART && <Chart state={state} />}
-      {view === DASHBOARD && <Dashboard {...state} />}
-      {view === MAP && <Map />}
+      {}
+      {view === CHART && !state.loading && <Chart state={state} />}
+      {view === DASHBOARD && !state.loading && <Dashboard {...state} />}
+      {view === MAP && !state.loading && <Map />}
     </>
   );
 }
