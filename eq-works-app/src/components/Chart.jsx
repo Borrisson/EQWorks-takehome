@@ -15,7 +15,7 @@ export default function Graph({ state }) {
       options: {
         plugins: {
           title: {
-            text: "Chart.js Time Scale",
+            text: "2017 Events",
             display: true,
           },
         },
@@ -23,7 +23,7 @@ export default function Graph({ state }) {
           x: {
             type: "time",
             time: {
-              displayFormat: "DD T",
+              unit: "day",
             },
             title: {
               display: true,
