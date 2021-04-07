@@ -15,19 +15,31 @@ export default function Dashboard(state) {
 
   return (
     <div className="dashboard">
-      <Pagination className="mt-3">
-        <Pagination.Item key={HOURLYEVENTS} active={view === HOURLYEVENTS}>
+      <Pagination className="mt-1 position-fixed">
+        <Pagination.Item
+          key={HOURLYEVENTS}
+          active={view === HOURLYEVENTS}
+          onClick={() => setView(HOURLYEVENTS)}
+        >
           Events
         </Pagination.Item>
-        <Pagination.Item key={HOURLYSTATS} active={view === HOURLYSTATS}>
+        <Pagination.Item
+          key={HOURLYSTATS}
+          active={view === HOURLYSTATS}
+          onClick={() => setView(HOURLYSTATS)}
+        >
           Stats
         </Pagination.Item>
-        <Pagination.Item key={POI} active={view === POI}>
+        <Pagination.Item
+          key={POI}
+          active={view === POI}
+          onClick={() => setView(POI)}
+        >
           Points of Interest
         </Pagination.Item>
       </Pagination>
 
-      <Table striped bordered hover>
+      <Table striped bordered hover className="mt-5">
         <thead>
           <tr>
             <th>#</th>
