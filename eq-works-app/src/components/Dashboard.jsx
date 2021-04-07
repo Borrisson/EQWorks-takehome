@@ -1,4 +1,5 @@
 import Table from "react-bootstrap/Table";
+import Pagination from "react-bootstrap/Pagination";
 import TableItem from "./TableItem";
 
 export default function Dashboard(state) {
@@ -6,16 +7,20 @@ export default function Dashboard(state) {
     <TableItem key={el.date} id={id} {...el} />
   ));
   return (
-    <Table striped bordered hover className="dashboard">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Date</th>
-          <th>Time</th>
-          <th>Events</th>
-        </tr>
-      </thead>
-      <tbody>{parsedTableItem}</tbody>
-    </Table>
+    <div className="dashboard">
+      <Pagination>{1}</Pagination>
+
+      <Table striped bordered hover>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Events</th>
+          </tr>
+        </thead>
+        <tbody>{parsedTableItem}</tbody>
+      </Table>
+    </div>
   );
 }
