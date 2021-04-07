@@ -16,7 +16,12 @@ function App() {
   return (
     // add a loader until data has been fetched
     <>
-      <SideBar />
+      <SideBar
+        setView={setView}
+        CHART={CHART}
+        DASHBOARD={DASHBOARD}
+        MAP={MAP}
+      />
       {view === CHART && <Chart state={state} />}
       {view === DASHBOARD && <Dashboard {...state} />}
       {view === MAP && <Map />}

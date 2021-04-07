@@ -8,7 +8,7 @@ import {
 } from "react-pro-sidebar";
 
 import { useState, useEffect } from "react";
-export default function SideBar(props) {
+export default function SideBar({ setView, DASHBOARD, MAP, CHART }) {
   const [collapse, setCollapse] = useState(false);
 
   const [windowSize, setWindowSize] = useState({
@@ -49,23 +49,17 @@ export default function SideBar(props) {
       </SidebarHeader>
       <SidebarContent className="sidebar sidebar-body">
         <Menu className="sidebar sidebar-menu">
-          <MenuItem
-            className="sidebar item"
-            // onClick={() => handleShow("leaderboard")}
-          >
+          <MenuItem className="sidebar item" onClick={() => setView(DASHBOARD)}>
             Dashboard
           </MenuItem>
           <MenuItem
             className="sidebar item"
-            // onClick={() => handleShow("leaderboard")}
+            // onClick={() => setView(MAP)}
           >
-            Maps
+            Map
           </MenuItem>
-          <MenuItem
-            className="sidebar item"
-            // onClick={() => handleShow("leaderboard")}
-          >
-            Charts
+          <MenuItem className="sidebar item" onClick={() => setView(CHART)}>
+            Chart
           </MenuItem>
         </Menu>
       </SidebarContent>
