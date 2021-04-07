@@ -23,7 +23,15 @@ function App() {
         DASHBOARD={DASHBOARD}
         MAP={MAP}
       />
-      {}
+      {state.loading && (
+        <ReactLoading
+          className="centered"
+          type="bars"
+          color="grey"
+          height={667}
+          width={375}
+        />
+      )}
       {view === CHART && !state.loading && <Chart state={state} />}
       {view === DASHBOARD && !state.loading && <Dashboard {...state} />}
       {view === MAP && !state.loading && <Map />}
