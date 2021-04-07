@@ -12,7 +12,7 @@ export default function Dashboard(state) {
   const parsedTableItem = state[view].map((el, id) => (
     <TableItem
       current={view}
-      key={el.date}
+      key={el.date || el.poi_id}
       id={el.poi_id || id + 1}
       {...el}
       HOURLYEVENTS={HOURLYEVENTS}
