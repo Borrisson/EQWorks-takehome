@@ -5,6 +5,9 @@ export default function TableItem({
   date,
   events,
   current,
+  impressions,
+  clicks,
+  revenue,
   HOURLYSTATS,
   HOURLYEVENTS,
   POI,
@@ -19,6 +22,13 @@ export default function TableItem({
         </>
       )}
       {current === HOURLYEVENTS && <td>{events}</td>}
+      {current === HOURLYSTATS && (
+        <>
+          <td>{impressions}</td>
+          <td>{clicks}</td>
+          <td>{`$${Math.round(revenue * 100) / 100}`}</td>
+        </>
+      )}
     </tr>
   );
 }
