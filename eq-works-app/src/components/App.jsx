@@ -27,8 +27,8 @@ function App() {
           className="centered"
           type="bars"
           color="grey"
-          height={667}
-          width={375}
+          height="25%"
+          width="25%"
         />
       )}
       {view === CHART && !state.loading && <Chart state={state} />}
