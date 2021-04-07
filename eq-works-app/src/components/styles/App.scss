@@ -20,9 +20,7 @@
 .dashboard {
   margin-left: 20%;
   width: 80%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin-top: 70px;
 }
 
 .centered {
@@ -32,7 +30,6 @@
   transform: translate(-50%, -50%);
 }
 
-.carousel-control-prev,
-.carousel-control-next {
-  bottom: auto;
+.fixed-top {
+  left: 20%;
 }

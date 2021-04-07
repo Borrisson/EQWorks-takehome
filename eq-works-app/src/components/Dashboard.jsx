@@ -1,5 +1,9 @@
 import Table from "react-bootstrap/Table";
+import Navbar from "react-bootstrap/Navbar";
 import Pagination from "react-bootstrap/Pagination";
+import Form from "react-bootstrap/Form";
+import FormControl from "react-bootstrap/FormControl";
+import Button from "react-bootstrap/Button";
 import TableItem from "./TableItem";
 import { useState } from "react";
 const HOURLYEVENTS = "hourlyEvents";
@@ -22,32 +26,38 @@ export default function Dashboard(state) {
   ));
 
   return (
-    <div className="dashboard">
-      <Pagination className="mt-1 position-fixed">
-        <Pagination.Item
-          key={HOURLYEVENTS}
-          active={view === HOURLYEVENTS}
-          onClick={() => setView(HOURLYEVENTS)}
-        >
-          Events
-        </Pagination.Item>
-        <Pagination.Item
-          key={HOURLYSTATS}
-          active={view === HOURLYSTATS}
-          onClick={() => setView(HOURLYSTATS)}
-        >
-          Stats
-        </Pagination.Item>
-        <Pagination.Item
-          key={POI}
-          active={view === POI}
-          onClick={() => setView(POI)}
-        >
-          Points of Interest
-        </Pagination.Item>
-      </Pagination>
+    <>
+      <Navbar fixed="top" bg="dark" variant="dark">
+        <Pagination className="mr-auto">
+          <Pagination.Item
+            key={HOURLYEVENTS}
+            active={view === HOURLYEVENTS}
+            onClick={() => setView(HOURLYEVENTS)}
+          >
+            Events
+          </Pagination.Item>
+          <Pagination.Item
+            key={HOURLYSTATS}
+            active={view === HOURLYSTATS}
+            onClick={() => setView(HOURLYSTATS)}
+          >
+            Stats
+          </Pagination.Item>
+          <Pagination.Item
+            key={POI}
+            active={view === POI}
+            onClick={() => setView(POI)}
+          >
+            Points of Interest
+          </Pagination.Item>
+        </Pagination>
 
-      <Table striped bordered hover className="mt-5">
+        <Form inline>
+          <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+        </Form>
+      </Navbar>
+
+      <Table striped bordered hover className="dashboard">
         <thead>
           <tr>
             <th>#</th>
@@ -77,6 +87,6 @@ export default function Dashboard(state) {
         </thead>
         <tbody>{parsedTableItem}</tbody>
       </Table>
-    </div>
+    </>
   );
 }
