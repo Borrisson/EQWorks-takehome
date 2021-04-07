@@ -51,13 +51,20 @@ export default function Dashboard(state) {
         <thead>
           <tr>
             <th>#</th>
-            {[HOURLYEVENTS, HOURLYSTATS].includes(view) && (
+            {[HOURLYEVENTS, HOURLYSTATS].includes(view) && <th>Date</th>}
+            {view === HOURLYEVENTS && (
               <>
-                <th>Date</th>
                 <th>Time</th>
+                <th>Events</th>
               </>
             )}
-            {view === HOURLYEVENTS && <th>Events</th>}
+            {view === HOURLYSTATS && (
+              <>
+                <td>Impressions</td>
+                <td>Clicks</td>
+                <td>Revenue</td>
+              </>
+            )}
           </tr>
         </thead>
         <tbody>{parsedTableItem}</tbody>
