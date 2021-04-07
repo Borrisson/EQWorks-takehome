@@ -6,7 +6,7 @@ export default function Dashboard(state) {
     <TableItem key={el.date} id={id} {...el} />
   ));
   return (
-    <Table striped bordered hover>
+    <Table striped bordered hover className="dashboard">
       <thead>
         <tr>
           <th>#</th>
