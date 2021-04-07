@@ -1,6 +1,7 @@
 import { useEffect, useReducer } from "react";
 import dataReducer, { SET_APPLICATION_DATA } from "../reducer/data_reducer";
 import axios from "axios";
+import { toTimestamp } from "../helpers/parser";
 
 const useApplicationData = () => {
   const [state, dispatch] = useReducer(dataReducer, {
@@ -28,10 +29,30 @@ const useApplicationData = () => {
       }),
     ])
       .then(([EvHourRes, EvDayRes, StatHourRes, StatDayRes, poiRes]) => {
-        const hourlyEvents = EvHourRes.data;
-        const dailyEvents = EvDayRes.data;
-        const hourlyStats = StatHourRes.data;
-        const dailyStats = StatDayRes.data;
+        const hourlyEvents = EvHourRes.data.map((el) => {
+          return {
+            ...el,
+            date: toTimestamp(el),
+          };
+        });
+        const dailyEvents = EvDayRes.data.map((el) => {
+          return {
+            ...el,
+            date: toTimestamp(el),
+          };
+        });
+        const hourlyStats = StatHourRes.data.map((el) => {
+          return {
+            ...el,
+            date: toTimestamp(el),
+          };
+        });
+        const dailyStats = StatDayRes.data.map((el) => {
+          return {
+            ...el,
+            date: toTimestamp(el),
+          };
+        });
         const poi = poiRes.data;
 
         handleAppData({

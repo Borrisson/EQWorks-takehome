@@ -12,6 +12,32 @@ export default function Graph({ state }) {
 
     const chart = new Chart(ctx, {
       type: "bar",
+      options: {
+        plugins: {
+          title: {
+            text: "Chart.js Time Scale",
+            display: true,
+          },
+        },
+        scales: {
+          x: {
+            type: "time",
+            time: {
+              displayFormat: "DD T",
+            },
+            title: {
+              display: true,
+              text: "Date",
+            },
+          },
+          y: {
+            title: {
+              display: true,
+              text: "Events",
+            },
+          },
+        },
+      },
       data: {
         datasets: [
           {
