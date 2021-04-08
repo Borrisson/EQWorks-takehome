@@ -28,8 +28,10 @@ export default function Dashboard(state) {
         return false;
       });
       setResults(filteredArray);
+    } else {
+      setResults(state[view]);
     }
-  }, [value, view]);
+  }, [value, view, state]);
 
   const parsedTableItem = state[view].map((el, id) => (
     <TableItem
