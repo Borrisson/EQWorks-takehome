@@ -5,6 +5,7 @@ import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import TableItem from "./TableItem";
 import { useState, useLayoutEffect } from "react";
+import format from "date-fns/format";
 const HOURLYEVENTS = "hourlyEvents";
 const HOURLYSTATS = "hourlyStats";
 const POI = "poi";
@@ -20,7 +21,9 @@ export default function Dashboard(state) {
       const regex = new RegExp(value, "i");
 
       const filteredArray = state[view].filter((el) => {
-        return Object.values(el).filter((values) => regex.test(values)).length;
+        return Object.entries(el).filter(([key, value]) => {
+          return regex.test(value);
+        }).length;
       });
       setResults(filteredArray);
     } else {
