@@ -22,7 +22,9 @@ export default function Dashboard(state) {
 
       const filteredArray = state[view].filter((el) => {
         return Object.entries(el).filter(([key, value]) => {
-          return regex.test(value);
+          return regex.test(
+            key === "date" ? format(value, "MM/dd/yyyy hh aaaa") : value
+          );
         }).length;
       });
       setResults(filteredArray);
