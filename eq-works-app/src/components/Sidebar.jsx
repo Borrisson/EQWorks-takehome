@@ -52,10 +52,7 @@ export default function SideBar({ setView, DASHBOARD, MAP, CHART }) {
           <MenuItem className="sidebar item" onClick={() => setView(DASHBOARD)}>
             Dashboard
           </MenuItem>
-          <MenuItem
-            className="sidebar item"
-            // onClick={() => setView(MAP)}
-          >
+          <MenuItem className="sidebar item" onClick={() => setView(MAP)}>
             Map
           </MenuItem>
           <MenuItem className="sidebar item" onClick={() => setView(CHART)}>
