@@ -5,7 +5,6 @@ import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import TableItem from "./TableItem";
 import { useState, useEffect } from "react";
-import useDebounce from "../hooks/useDebounce";
 const HOURLYEVENTS = "hourlyEvents";
 const HOURLYSTATS = "hourlyStats";
 const POI = "poi";
