@@ -19,7 +19,7 @@ const useApplicationData = () => {
       axios.get("/events/daily", {
         withCredentials: true,
       }),
-      axios.get("/stats/daily", {
+      axios.get("/stats/hourly", {
         withCredentials: true,
       }),
       axios.get("/stats/daily", {
