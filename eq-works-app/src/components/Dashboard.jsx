@@ -5,7 +5,7 @@ import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import TableItem from "./TableItem";
 import { useState } from "react";
-import useDebounce from "hooks/useDebounce";
+import useDebounce from "../hooks/useDebounce";
 const HOURLYEVENTS = "hourlyEvents";
 const HOURLYSTATS = "hourlyStats";
 const POI = "poi";
@@ -55,7 +55,12 @@ export default function Dashboard(state) {
         </Pagination>
 
         <Form inline>
-          <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+          <FormControl
+            onChange={(event) => setValue(event.target.value)}
+            type="text"
+            placeholder="Search"
+            className="mr-sm-2"
+          />
         </Form>
       </Navbar>
 
