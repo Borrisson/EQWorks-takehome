@@ -20,8 +20,8 @@ export default function Dashboard(state) {
     if (value) {
       const regex = new RegExp(value, "i");
 
-      const filteredArray = state[view].filter((el) => {
-        return Object.entries(el).filter(([key, value]) => {
+      const filteredArray = state[view].filter((obj) => {
+        return Object.entries(obj).filter(([key, value]) => {
           return regex.test(
             key === "date" ? format(value, "MM/dd/yyyy hh aaaa") : value
           );
