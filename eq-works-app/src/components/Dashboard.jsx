@@ -4,7 +4,7 @@ import Pagination from "react-bootstrap/Pagination";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import TableItem from "./TableItem";
-import { useState, useEffect } from "react";
+import { useState, useLayoutEffect } from "react";
 const HOURLYEVENTS = "hourlyEvents";
 const HOURLYSTATS = "hourlyStats";
 const POI = "poi";
@@ -15,17 +15,12 @@ export default function Dashboard(state) {
 
   const [view, setView] = useState(HOURLYEVENTS);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (value) {
       const regex = new RegExp(value, "i");
-      const dataKeys = Object.keys(state[view][0]);
+
       const filteredArray = state[view].filter((el) => {
-        for (const key of dataKeys) {
-          if (regex.test(el[key])) {
-            return true;
-          }
-        }
-        return false;
+        return Object.values(el).filter((values) => regex.test(values)).length;
       });
       setResults(filteredArray);
     } else {
@@ -33,7 +28,7 @@ export default function Dashboard(state) {
     }
   }, [value, view, state]);
 
-  const parsedTableItem = state[view].map((el, id) => (
+  const parsedTableItem = results.map((el, id) => (
     <TableItem
       current={view}
       key={el.poi_id || el.date}
@@ -52,21 +47,30 @@ export default function Dashboard(state) {
           <Pagination.Item
             key={HOURLYEVENTS}
             active={view === HOURLYEVENTS}
-            onClick={() => setView(HOURLYEVENTS)}
+            onClick={() => {
+              setView(HOURLYEVENTS);
+              setResults(state[HOURLYEVENTS]);
+            }}
           >
             Events
           </Pagination.Item>
           <Pagination.Item
             key={HOURLYSTATS}
             active={view === HOURLYSTATS}
-            onClick={() => setView(HOURLYSTATS)}
+            onClick={() => {
+              setView(HOURLYSTATS);
+              setResults(state[HOURLYSTATS]);
+            }}
           >
             Stats
           </Pagination.Item>
           <Pagination.Item
             key={POI}
             active={view === POI}
-            onClick={() => setView(POI)}
+            onClick={() => {
+              setView(POI);
+              setResults(state[POI]);
+            }}
           >
             Points of Interest
           </Pagination.Item>
