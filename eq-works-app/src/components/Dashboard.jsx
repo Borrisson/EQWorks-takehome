@@ -4,16 +4,33 @@ import Pagination from "react-bootstrap/Pagination";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import TableItem from "./TableItem";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import useDebounce from "../hooks/useDebounce";
 const HOURLYEVENTS = "hourlyEvents";
 const HOURLYSTATS = "hourlyStats";
 const POI = "poi";
 
 export default function Dashboard(state) {
-  const [view, setView] = useState(HOURLYEVENTS);
   const [value, setValue] = useState("");
-  const term = useDebounce(value, 400);
+  const [results, setResults] = useState([]);
+
+  const [view, setView] = useState(HOURLYEVENTS);
+
+  useEffect(() => {
+    if (value) {
+      const regex = new RegExp(value, "i");
+      const dataKeys = Object.keys(state[view][0]);
+      const filteredArray = state[view].filter((el) => {
+        for (const key of dataKeys) {
+          if (regex.test(el[key])) {
+            return true;
+          }
+        }
+        return false;
+      });
+      setResults(filteredArray);
+    }
+  }, [value, view]);
 
   const parsedTableItem = state[view].map((el, id) => (
     <TableItem
