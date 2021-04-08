@@ -5,12 +5,15 @@ import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import TableItem from "./TableItem";
 import { useState } from "react";
+import useDebounce from "hooks/useDebounce";
 const HOURLYEVENTS = "hourlyEvents";
 const HOURLYSTATS = "hourlyStats";
 const POI = "poi";
 
 export default function Dashboard(state) {
   const [view, setView] = useState(HOURLYEVENTS);
+  const [value, setValue] = useState("");
+  const term = useDebounce(value, 400);
 
   const parsedTableItem = state[view].map((el, id) => (
     <TableItem
