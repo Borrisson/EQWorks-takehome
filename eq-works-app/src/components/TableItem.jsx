@@ -20,14 +20,12 @@ export default function TableItem({
     <tr>
       <td>{id}</td>
       {[HOURLYEVENTS, HOURLYSTATS].includes(current) && (
-        <td>{format(date, "MM/dd/yyyy")}</td>
-      )}
-      {current === HOURLYEVENTS && (
         <>
+          <td>{format(date, "MM/dd/yyyy")}</td>
           <td>{format(date, "hh aaaa")}</td>
-          <td>{events}</td>
         </>
       )}
+      {current === HOURLYEVENTS && <td>{events}</td>}
       {current === HOURLYSTATS && (
         <>
           <td>{impressions}</td>
