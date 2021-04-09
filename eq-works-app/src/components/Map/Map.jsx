@@ -1,15 +1,6 @@
 import { MapContainer, TileLayer, MapConsumer } from "react-leaflet";
 import MarkerItem from "./MarkerItem";
-import L from "leaflet";
-import icon from "leaflet/dist/images/marker-icon.png";
-import iconShadow from "leaflet/dist/images/marker-shadow.png";
-
-const DefaultIcon = L.icon({
-  iconUrl: icon,
-  shadowUrl: iconShadow,
-});
-
-L.Marker.prototype.options.icon = DefaultIcon;
+import MarkerClusterGroup from "react-leaflet-markercluster";
 
 export default function Map({ poi }) {
   const parsedMarkers = poi.map((obj) => {
@@ -28,7 +19,7 @@ export default function Map({ poi }) {
           return null;
         }}
       </MapConsumer>
-      {parsedMarkers}
+      <MarkerClusterGroup>{parsedMarkers}</MarkerClusterGroup>
     </MapContainer>
   );
 }
