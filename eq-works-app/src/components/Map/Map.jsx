@@ -1,5 +1,6 @@
-import { MapContainer, TileLayer, MapConsumer, Marker } from "react-leaflet";
+import { MapContainer, TileLayer, MapConsumer } from "react-leaflet";
 import MarkerItem from "./MarkerItem";
+import MarkerClusterGroup from "react-leaflet-markercluster";
 
 export default function Map({ poi }) {
   const parsedMarkers = poi.map((obj) => {
@@ -12,13 +13,13 @@ export default function Map({ poi }) {
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
+      <MarkerClusterGroup>{parsedMarkers}</MarkerClusterGroup>
       <MapConsumer>
         {(map) => {
           console.log("map center:", map.getCenter());
           return null;
         }}
       </MapConsumer>
-      {parsedMarkers}
     </MapContainer>
   );
 }
