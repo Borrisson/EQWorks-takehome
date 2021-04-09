@@ -33,7 +33,7 @@ function App() {
       )}
       {view === CHART && !state.loading && <Chart state={state} />}
       {view === DASHBOARD && !state.loading && <Dashboard {...state} />}
-      {view === MAP && !state.loading && <Map />}
+      {view === MAP && !state.loading && <Map {...state} />}
     </>
   );
 }
