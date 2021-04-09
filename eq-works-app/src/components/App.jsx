@@ -5,7 +5,7 @@ import useApplicationData from "../hooks/useAppData";
 import SideBar from "./Sidebar";
 import Chart from "./Chart";
 import Dashboard from "./Dashboard";
-import Map from "./Map";
+import Map from "./Map/Map";
 
 const CHART = "CHART";
 const DASHBOARD = "DASHBOARD";
